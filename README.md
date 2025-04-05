@@ -1,0 +1,2 @@
+# syndrom.me
+personal portfolio

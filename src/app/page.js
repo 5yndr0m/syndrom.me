@@ -1,39 +1,51 @@
 import { SocialLinks } from "@/components/common/social-links";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex flex-row items-center justify-center min-h-[calc(100vh-8rem)] text-center px-4">
-      <Avatar className="w-32 h-32 md:h-40 mb-6">
-        <AvatarImage src="/me.jpg" alt="Avatar" height="160" width="160" />
-        <AvatarFallback>SD</AvatarFallback>
-      </Avatar>
+    <div className="min-h-[calc(100vh-8rem)] md:pl-30">
+      <div className="flex flex-col justify-center h-full">
+        <div className="flex flex-col gap-6">
+          <Avatar className="w-40 h-40 md:w-48 md:h-48">
+            <AvatarImage src="/me.jpg" alt="Avatar" height="192" width="192" />
+            <AvatarFallback>SD</AvatarFallback>
+          </Avatar>
+          
+          <div className="flex flex-col gap-4">
+            <h2 className="text-xl md:text-2xl text-muted-foreground">
+              Building secure & efficient solutions
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-md">
+              Developer and security enthusiast with a passion for creating robust applications 
+              that prioritize both performance and protection.
+            </p>
 
-      <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-        Senal Dilanjana
-      </h1>
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+              Senal Dilanjana
+            </h1>
+            
+            <Button 
+              className="relative group  hover:bg-green-700 w-fit"
+              size="lg"
+            >
+              {/* Blinking dot */}
+              <div className="absolute left-3 w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+              
+              {/* Flare effect */}
+              <div className="absolute inset-0 rounded-lg overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-green-500/20 to-transparent animate-flare" />
+              </div>
+              
+              <span className="ml-4">Open for Hire</span>
+            </Button>
+          </div>
+        </div>
 
-      <p className="text-xl text-muted-foreground max-w-md mb-8">
-        Developer and Security enthusiest passionate about building secure
-        efficient applications
-      </p>
-
-      <div className="flex flex-col sm:flex-row gap-4">
-        <Button asChild size="lg">
-          <Link href="/about">
-            Learn more <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
-        </Button>
-        <Button variant="outline" asChild size="lg">
-          <Link href="/projects">View my work</Link>
-        </Button>
+        <div className="mt-8">
+          <SocialLinks />
+        </div>
       </div>
-
-      <SocialLinks />
     </div>
   );
 }

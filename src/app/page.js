@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
-    <div className="min-h-[calc(100vh-8rem)] md:pl-30">
+    <div className="min-h-[calc(100vh-8rem)] md:pl-30 md:pt-30 pt-20">
       <div className="flex flex-col justify-center h-full">
         <div className="flex flex-col gap-6">
           <Avatar className="w-40 h-40 md:w-48 md:h-48">

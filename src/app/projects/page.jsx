@@ -4,64 +4,10 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { ExternalLink, Github } from "lucide-react"
+import { projects } from "@/lib/projectData"
 
 export default function ProjectsPage() {
-  const projects = [
-    {
-      title: "SecureChat",
-      description: "End-to-end encrypted messaging application with focus on privacy and security.",
-      image: "/placeholder.svg?height=300&width=600",
-      tags: ["React Native", "Node.js", "Encryption", "MongoDB"],
-      status: "Completed",
-      github: "https://github.com/alexchen/securechat",
-      live: "https://securechat-demo.vercel.app",
-    },
-    {
-      title: "DevOps Dashboard",
-      description: "Centralized dashboard for monitoring CI/CD pipelines, deployments, and server health.",
-      image: "/placeholder.svg?height=300&width=600",
-      tags: ["React", "TypeScript", "Docker", "Kubernetes"],
-      status: "In Progress",
-      github: "https://github.com/alexchen/devops-dashboard",
-      live: null,
-    },
-    {
-      title: "Network Scanner",
-      description: "Automated network vulnerability scanner with detailed reporting and remediation suggestions.",
-      image: "/placeholder.svg?height=300&width=600",
-      tags: ["Python", "Security", "Networking"],
-      status: "Completed",
-      github: "https://github.com/alexchen/network-scanner",
-      live: null,
-    },
-    {
-      title: "Portfolio Website",
-      description: "Personal portfolio website built with Next.js and Tailwind CSS.",
-      image: "/placeholder.svg?height=300&width=600",
-      tags: ["Next.js", "Tailwind CSS", "TypeScript"],
-      status: "Completed",
-      github: "https://github.com/alexchen/portfolio",
-      live: "https://alexchen.dev",
-    },
-    {
-      title: "Smart Home Hub",
-      description: "Centralized control system for IoT devices with custom automation rules.",
-      image: "/placeholder.svg?height=300&width=600",
-      tags: ["React", "Node.js", "IoT", "MQTT"],
-      status: "In Progress",
-      github: "https://github.com/alexchen/smart-home-hub",
-      live: null,
-    },
-    {
-      title: "Expense Tracker",
-      description: "Mobile app for tracking personal expenses with budget planning and analytics.",
-      image: "/placeholder.svg?height=300&width=600",
-      tags: ["Flutter", "Firebase", "Charts"],
-      status: "Completed",
-      github: "https://github.com/alexchen/expense-tracker",
-      live: "https://play.google.com/store/apps/expensetracker",
-    },
-  ]
+  
 
   return (
     <div className="space-y-8">
@@ -74,7 +20,7 @@ export default function ProjectsPage() {
         {projects.map((project, index) => (
           <Card key={index} className="overflow-hidden flex flex-col">
             <div className="relative h-48 w-full">
-              <Image src={project.image || "/placeholder.svg"} alt={project.title} fill className="object-cover" />
+              <Image src={project.image || "/placeholder.svg"} alt={project.title} fill className="object-contain" />
             </div>
             <CardHeader>
               <div className="flex justify-between items-start">

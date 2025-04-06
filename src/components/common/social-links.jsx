@@ -23,6 +23,11 @@ export function SocialLinks() {
       icon: <Twitter className="h-5 w-5" />,
       href: "https://x.com",
     },
+    {
+      name: "Mail",
+      icon: <Mail className="h-5 w-5" />,
+      href: "mailto:sdilanjana21@gmail.com",
+    },
   ]
 
   return (

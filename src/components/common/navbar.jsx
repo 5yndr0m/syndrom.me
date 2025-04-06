@@ -133,21 +133,21 @@ export function Navbar() {
                       </NavigationMenuLink>
                     </li>
                     <ListItem
-                      href="/uses"
+                      href="/uses#hardware"
                       title="Hardware"
                       icon={<Monitor className="h-4 w-4 mr-2" />}
                     >
                       Computers, displays, and accessories
                     </ListItem>
                     <ListItem
-                      href="/uses"
+                      href="/uses#software"
                       title="Software"
                       icon={<Code className="h-4 w-4 mr-2" />}
                     >
                       Development tools and productivity apps
                     </ListItem>
                     <ListItem
-                      href="/uses"
+                      href="/uses#services"
                       title="Services"
                       icon={<Smartphone className="h-4 w-4 mr-2" />}
                     >
@@ -241,19 +241,19 @@ export function Navbar() {
                     </h3>
                     <div className="flex flex-col gap-1 pl-4">
                       <Link
-                        href="/uses"
+                        href="/uses#hardware"
                         className="text-sm text-muted-foreground py-1 px-4 hover:text-foreground"
                       >
                         Hardware
                       </Link>
                       <Link
-                        href="/uses"
+                        href="/uses#software"
                         className="text-sm text-muted-foreground py-1 px-4 hover:text-foreground"
                       >
                         Software
                       </Link>
                       <Link
-                        href="/uses"
+                        href="/uses#services"
                         className="text-sm text-muted-foreground py-1 px-4 hover:text-foreground"
                       >
                         Services

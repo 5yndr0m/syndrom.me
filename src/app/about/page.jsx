@@ -7,7 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function AboutPage() {
   return (
-    <div className="space-y-12">
+    <div className="space-y-12 md:pl-30 md:pr-30">
       <section className="space-y-4">
         <h1 className="text-4xl font-bold tracking-tight">About Me</h1>
         <div className="max-w-2xl">

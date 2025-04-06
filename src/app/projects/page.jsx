@@ -10,7 +10,7 @@ export default function ProjectsPage() {
   
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 md:pl-30 md:pr-30">
       <div>
         <h1 className="text-4xl font-bold tracking-tight">Projects</h1>
         <p className="text-muted-foreground mt-2">A collection of my personal and professional projects.</p>

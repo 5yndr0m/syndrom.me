@@ -39,7 +39,7 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 ">
-      <div className="container flex h-16 items-center justify-between md:pl-7 pl-3 pr-3">
+      <div className="container flex h-16 items-center justify-between md:pl-36 pl-3 pr-3">
         <div className="flex items-center gap-2">
           <Link href="/" className="font-black text-4xl font-sans">
             Syndrom.

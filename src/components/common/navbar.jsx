@@ -182,7 +182,7 @@ export function Navbar() {
             <SheetContent side="right">
               <div className="flex flex-col gap-6 mt-6">
                 <Link href="/" className="font-bold text-xl">
-                  Alex<span className="text-primary">Chen</span>
+                  Syndrom.
                 </Link>
 
                 <nav className="flex flex-col gap-2">

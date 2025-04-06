@@ -66,7 +66,7 @@ export function Navbar() {
                           </div>
                           <p className="text-sm leading-tight text-muted-foreground">
                             Learn about my background, experience, and skills as
-                            a developer and security specialist.
+                            a developer.
                           </p>
                         </a>
                       </NavigationMenuLink>
@@ -76,7 +76,7 @@ export function Navbar() {
                       title="Experience"
                       icon={<Briefcase className="h-4 w-4 mr-2" />}
                     >
-                      My professional work history and projects
+                      My professional work history
                     </ListItem>
                     <ListItem
                       href="/about"

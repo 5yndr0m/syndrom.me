@@ -58,7 +58,17 @@ export default function HirePage() {
   const onSubmit = async (data) => {
     setIsSubmitting(true);
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        header: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to send message");
+      }
+
       toast({
         title: "Message sent!",
         description: "Thank you for your message. I'll get back to you soon.",
@@ -67,7 +77,7 @@ export default function HirePage() {
     } catch (error) {
       toast({
         title: "Error",
-        description: "Something went wrong. Please try again.",
+        description: error.message || "Something went wrong. Please try again.",
         variant: "destructive",
       });
     } finally {
@@ -90,7 +100,10 @@ export default function HirePage() {
           <Card>
             <CardContent className="pt-6">
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <form
+                  onSubmit={form.handleSubmit(onSubmit)}
+                  className="space-y-6"
+                >
                   <div className="grid md:grid-cols-2 gap-4">
                     <FormField
                       control={form.control}
@@ -112,7 +125,10 @@ export default function HirePage() {
                         <FormItem>
                           <FormLabel>Email</FormLabel>
                           <FormControl>
-                            <Input placeholder="your.email@example.com" {...field} />
+                            <Input
+                              placeholder="your.email@example.com"
+                              {...field}
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -146,13 +162,18 @@ export default function HirePage() {
                           />
                         </FormControl>
                         <FormDescription>
-                          Please include any relevant details about your project.
+                          Please include any relevant details about your
+                          project.
                         </FormDescription>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
-                  <Button type="submit" className="w-full" disabled={isSubmitting}>
+                  <Button
+                    type="submit"
+                    className="w-full"
+                    disabled={isSubmitting}
+                  >
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
@@ -175,7 +196,9 @@ export default function HirePage() {
                 </div>
                 <div className="flex items-center gap-2">
                   <MessageSquare className="h-4 w-4 text-muted-foreground" />
-                  <span className="text-sm">Response time: {availability.response}</span>
+                  <span className="text-sm">
+                    Response time: {availability.response}
+                  </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail className="h-4 w-4 text-muted-foreground" />
@@ -184,7 +207,9 @@ export default function HirePage() {
               </div>
 
               <div className="pt-4">
-                <h3 className="text-lg font-semibold mb-2">Preferred Projects</h3>
+                <h3 className="text-lg font-semibold mb-2">
+                  Preferred Projects
+                </h3>
                 <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
                   <li>Web applications</li>
                   <li>Mobile app development</li>
@@ -201,7 +226,9 @@ export default function HirePage() {
         <div>
           <Card>
             <CardContent className="pt-6">
-              <h2 className="text-2xl font-semibold mb-4">Frequently Asked Questions</h2>
+              <h2 className="text-2xl font-semibold mb-4">
+                Frequently Asked Questions
+              </h2>
               <Accordion type="single" collapsible className="w-full">
                 {faqs.map((faq, index) => (
                   <AccordionItem key={index} value={`item-${index}`}>

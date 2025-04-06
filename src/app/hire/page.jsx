@@ -1,18 +1,31 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
-import { Button } from "@/components/ui/button"
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { toast } from "sonner"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Card, CardContent } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Calendar, Clock, Mail, MessageSquare } from "lucide-react"
+import { useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Calendar, Clock, Mail, MessageSquare } from "lucide-react";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -27,12 +40,12 @@ const formSchema = z.object({
   message: z.string().min(10, {
     message: "Message must be at least 10 characters.",
   }),
-})
+});
 
 export default function HirePage() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const form = useForm<z.infer<typeof formSchema>>({
+  const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
@@ -40,21 +53,28 @@ export default function HirePage() {
       subject: "",
       message: "",
     },
-  })
+  });
 
-  function onSubmit(values) {
-    setIsSubmitting(true)
-
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false)
+  const onSubmit = async (data) => {
+    setIsSubmitting(true);
+    try {
+      // Simulate form submission
+      await new Promise((resolve) => setTimeout(resolve, 1500));
       toast({
         title: "Message sent!",
         description: "Thank you for your message. I'll get back to you soon.",
-      })
-      form.reset()
-    }, 1500)
-  }
+      });
+      form.reset();
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const faqs = [
     {
@@ -82,20 +102,22 @@ export default function HirePage() {
       answer:
         "I have experience joining ongoing projects and can adapt to existing codebases. I'll need some time to review the current state of the project before providing estimates for additional work or improvements.",
     },
-  ]
+  ];
 
   const availability = {
     hours: "20-30 hours per week",
     timezone: "Eastern Time (ET)",
     response: "Within 24 hours",
     startDate: "Available immediately",
-  }
+  };
 
   return (
     <div className="space-y-8">
       <div>
         <h1 className="text-4xl font-bold tracking-tight">Hire Me</h1>
-        <p className="text-muted-foreground mt-2">Interested in working together? Let's discuss your project.</p>
+        <p className="text-muted-foreground mt-2">
+          Interested in working together? Let's discuss your project.
+        </p>
       </div>
 
       <Tabs defaultValue="contact" className="w-full">
@@ -109,7 +131,10 @@ export default function HirePage() {
             <Card className="md:col-span-2">
               <CardContent className="pt-6">
                 <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                  <form
+                    onSubmit={form.handleSubmit(onSubmit)}
+                    className="space-y-6"
+                  >
                     <div className="grid md:grid-cols-2 gap-4">
                       <FormField
                         control={form.control}
@@ -131,7 +156,10 @@ export default function HirePage() {
                           <FormItem>
                             <FormLabel>Email</FormLabel>
                             <FormControl>
-                              <Input placeholder="your.email@example.com" {...field} />
+                              <Input
+                                placeholder="your.email@example.com"
+                                {...field}
+                              />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -164,12 +192,19 @@ export default function HirePage() {
                               {...field}
                             />
                           </FormControl>
-                          <FormDescription>Please include any relevant details about your project.</FormDescription>
+                          <FormDescription>
+                            Please include any relevant details about your
+                            project.
+                          </FormDescription>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
-                    <Button type="submit" className="w-full" disabled={isSubmitting}>
+                    <Button
+                      type="submit"
+                      className="w-full"
+                      disabled={isSubmitting}
+                    >
                       {isSubmitting ? "Sending..." : "Send Message"}
                     </Button>
                   </form>
@@ -192,7 +227,9 @@ export default function HirePage() {
                   </div>
                   <div className="flex items-center gap-2">
                     <MessageSquare className="h-4 w-4 text-muted-foreground" />
-                    <span className="text-sm">Response time: {availability.response}</span>
+                    <span className="text-sm">
+                      Response time: {availability.response}
+                    </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Mail className="h-4 w-4 text-muted-foreground" />
@@ -201,7 +238,9 @@ export default function HirePage() {
                 </div>
 
                 <div className="pt-4">
-                  <h3 className="text-lg font-semibold mb-2">Preferred Projects</h3>
+                  <h3 className="text-lg font-semibold mb-2">
+                    Preferred Projects
+                  </h3>
                   <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
                     <li>Web applications</li>
                     <li>Mobile app development</li>
@@ -227,6 +266,5 @@ export default function HirePage() {
         </TabsContent>
       </Tabs>
     </div>
-  )
+  );
 }
-

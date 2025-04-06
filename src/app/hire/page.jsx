@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { toast } from "sonner";
+import { Toaster, toast } from "sonner";
 import {
   Accordion,
   AccordionContent,
@@ -69,16 +69,13 @@ export default function HirePage() {
         throw new Error(result.error || "Failed to send message");
       }
 
-      toast({
-        title: "Message sent!",
+      toast.success("Message sent!", {
         description: "Thank you for your message. I'll get back to you soon.",
       });
       form.reset();
     } catch (error) {
-      toast({
-        title: "Error",
+      toast.error("Error", {
         description: error.message || "Something went wrong. Please try again.",
-        variant: "destructive",
       });
     } finally {
       setIsSubmitting(false);

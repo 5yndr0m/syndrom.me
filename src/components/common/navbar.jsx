@@ -72,28 +72,28 @@ export function Navbar() {
                       </NavigationMenuLink>
                     </li>
                     <ListItem
-                      href="/about"
+                      href="/about/experience"
                       title="Experience"
                       icon={<Briefcase className="h-4 w-4 mr-2" />}
                     >
                       My professional work history
                     </ListItem>
                     <ListItem
-                      href="/about"
+                      href="/about/education"
                       title="Education"
                       icon={<GraduationCap className="h-4 w-4 mr-2" />}
                     >
                       Academic background and qualifications
                     </ListItem>
                     <ListItem
-                      href="/about"
+                      href="/about/certificates"
                       title="Certificates"
                       icon={<Award className="h-4 w-4 mr-2" />}
                     >
                       Professional certifications and achievements
                     </ListItem>
                     <ListItem
-                      href="/about"
+                      href="/about/skills"
                       title="Skills"
                       icon={<Code className="h-4 w-4 mr-2" />}
                     >

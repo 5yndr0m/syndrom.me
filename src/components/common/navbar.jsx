@@ -54,7 +54,7 @@ export function Navbar() {
                 <NavigationMenuTrigger>About</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[95vw] max-w-[350px] gap-3 p-4 md:w-[400px] md:grid-cols-2">
-                    <li className="row-span-4">
+                    <li className="row-span-2">
                       <NavigationMenuLink asChild>
                         <a
                           className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"

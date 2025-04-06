@@ -38,8 +38,8 @@ export function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 pr-30 pl-30">
-      <div className="container flex h-16 items-center justify-between">
+    <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 ">
+      <div className="container flex h-16 items-center justify-between pl-30">
         <div className="flex items-center gap-2">
           <Link href="/" className="font-black text-4xl font-sans">
             Syndrom.
@@ -47,7 +47,7 @@ export function Navbar() {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-4 pr-30">
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>

@@ -39,7 +39,7 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 ">
-      <div className="container flex h-16 items-center justify-between pl-30">
+      <div className="container flex h-16 items-center justify-between md:pl-30 pl-3 pr-3">
         <div className="flex items-center gap-2">
           <Link href="/" className="font-black text-4xl font-sans">
             Syndrom.
@@ -180,7 +180,7 @@ export function Navbar() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right">
-              <div className="flex flex-col gap-6 mt-6">
+              <div className="flex flex-col gap-6 mt-6 pl-2">
                 <Link href="/" className="font-bold text-xl">
                   Syndrom.
                 </Link>

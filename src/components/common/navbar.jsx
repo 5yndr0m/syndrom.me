@@ -38,10 +38,10 @@ export function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 pr-30 pl-30">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
-          <Link href="/" className="font-bold text-xl">
+          <Link href="/" className="font-black text-4xl font-sans">
             Syndrom.
           </Link>
         </div>
@@ -53,8 +53,8 @@ export function Navbar() {
               <NavigationMenuItem>
                 <NavigationMenuTrigger>About</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid gap-3 p-4 w-[400px] md:grid-cols-2">
-                    <li className="row-span-3">
+                  <ul className="grid w-[95vw] max-w-[350px] gap-3 p-4 md:w-[400px] md:grid-cols-2">
+                    <li className="row-span-4">
                       <NavigationMenuLink asChild>
                         <a
                           className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
